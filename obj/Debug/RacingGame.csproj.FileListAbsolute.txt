@@ -1,0 +1,10 @@
+C:\Users\Nikolajs\source\repos\RacingGame\RacingGame\bin\Debug\RacingGame.exe.config
+C:\Users\Nikolajs\source\repos\RacingGame\RacingGame\bin\Debug\RacingGame.exe
+C:\Users\Nikolajs\source\repos\RacingGame\RacingGame\bin\Debug\RacingGame.pdb
+C:\Users\Nikolajs\source\repos\RacingGame\RacingGame\obj\Debug\RacingGame.csproj.AssemblyReference.cache
+C:\Users\Nikolajs\source\repos\RacingGame\RacingGame\obj\Debug\RacingGame.Form1.resources
+C:\Users\Nikolajs\source\repos\RacingGame\RacingGame\obj\Debug\RacingGame.Properties.Resources.resources
+C:\Users\Nikolajs\source\repos\RacingGame\RacingGame\obj\Debug\RacingGame.csproj.GenerateResource.cache
+C:\Users\Nikolajs\source\repos\RacingGame\RacingGame\obj\Debug\RacingGame.csproj.CoreCompileInputs.cache
+C:\Users\Nikolajs\source\repos\RacingGame\RacingGame\obj\Debug\RacingGame.exe
+C:\Users\Nikolajs\source\repos\RacingGame\RacingGame\obj\Debug\RacingGame.pdb
