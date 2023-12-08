@@ -12,13 +12,14 @@ namespace RacingGame
 {
     public partial class Form1 : Form
     {
-        private Point pos;
-        private bool dragging, lose;
-        private int countCoins = 0;
+        private Point pos;  // Uzglabā peles klikšķa sākuma punktu
+        private bool dragging, lose;  // Pārvalda loga pārbīdīšanu un zaudēšanas statusu
+        private int countCoins = 0;  // Uzglabā monētu skaitu
         public Form1()
         {
-            //nolasa vai ar peli uzspiež uz spēli un izsauc funkciju lai pārbīdītu logu
             InitializeComponent();
+
+            // Pievieno notikumu apstrādes metodes pelēm un loga pārbīdīšanai
             bg1.MouseDown += MouseClickDown;
             bg1.MouseUp += MouseClickUp;
             bg1.MouseMove += MouseClickMove;
@@ -27,12 +28,14 @@ namespace RacingGame
             bg2.MouseUp += MouseClickUp;
             bg2.MouseMove += MouseClickMove;
 
-            //paslēpj nevajadzīgos spēles laikā uzrakstus
+            // Paslēpj nevajadzīgos spēles laikā uzrakstus
             labelLose.Visible = false;
             btnRestart.Visible = false;
-            KeyPreview = true;
+            KeyPreview = true;  // Iespējo taustiņu notikumu apstrādi
         }
 
+
+        // Notikumu apstrādes metodes peles kustībai un loga pārbīdīšanai
 
         private void MouseClickDown(object sender, MouseEventArgs e)
         {
@@ -57,9 +60,11 @@ namespace RacingGame
 
         }
 
+
+        // Taustiņu nospiešanas notikums
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //uzspiežot Esc 
+            // Iziet no spēles, nospiežot 'Esc'
             if (e.KeyChar == (char)Keys.Escape) 
                 this.Close();
         }
@@ -74,8 +79,12 @@ namespace RacingGame
 
         }
 
+
+        // Timer notikums, kas atkārtoti tiek izsaukts 
         private void timer_Tick(object sender, EventArgs e)
         {
+
+            // Kustība foniem, pretiniekiem un monētai
             int speed = 3;
             bg1.Top += speed;
             bg2.Top += speed;
@@ -111,7 +120,11 @@ namespace RacingGame
                 enemy2.Left = rand.Next(300, 560);
                 enemy2.Top = -400;
             }
-            if(player.Bounds.IntersectsWith(enemy1.Bounds)
+
+            // Sadursme ar pretiniekiem un apbalvojums par monētām
+
+            // Pārbaude, vai spēlētājs zaudējis
+            if (player.Bounds.IntersectsWith(enemy1.Bounds)
                 || player.Bounds.IntersectsWith(enemy2.Bounds))
             {
                 timer.Enabled = false;
@@ -119,6 +132,8 @@ namespace RacingGame
                 btnRestart.Visible = true;
                 lose = true;
             }
+
+            // Pārbaude, vai spēlētājs savācis monētu
             if (player.Bounds.IntersectsWith(coin.Bounds)) 
             {
                 countCoins++;
@@ -129,11 +144,16 @@ namespace RacingGame
             }
         }
 
+
+        // Taustiņu nospiešanas notikums
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (lose) return;
+            if (lose) return;   // Ja jau zaudēts, ignorē taustiņu nospiešanu
+
             int speed = 10;
-            if((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && player.Left > 150) {
+
+            // Spēlētāja kustība pa labi un pa kreisi
+            if ((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && player.Left > 150) {
                 player.Left -= speed;
             }
             else if ((e.KeyCode == Keys.Right || e.KeyCode == Keys.D) && player.Right < 700)
@@ -147,8 +167,10 @@ namespace RacingGame
 
         }
 
+        // Restartēšanas pogas nospiešanas notikums
         private void btnRestart_Click(object sender, EventArgs e)
         {
+            // Atiestata spēles stāvokli uz sākuma vērtībām
             enemy1.Top = -130;
             enemy2.Top = -400;
             labelLose.Visible = false;
